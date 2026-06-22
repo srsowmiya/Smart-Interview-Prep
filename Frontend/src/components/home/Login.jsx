@@ -1,52 +1,143 @@
 import { useState } from "react";
 
 const Login = () => {
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPwd, setShowPwd] = useState(false);
 
   return (
-    <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#f9f9f8" }}>
-      <div style={{ background: "#fff", border: "0.5px solid #e0dfd8", borderRadius: "12px", padding: "2rem 2.25rem", width: "100%", maxWidth: "380px" }}>
+    <div className="flex h-screen w-full">
 
-        <div style={{ marginBottom: "1.75rem" }}>
-          <div style={{ width: 40, height: 40, borderRadius: "50%", background: "#e6f1fb", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "1rem" }}>
-            👤
-          </div>
-          <h1 style={{ fontSize: 20, fontWeight: 500, margin: "0 0 4px" }}>Welcome back</h1>
-          <p style={{ fontSize: 14, color: "#888", margin: 0 }}>Sign in to your account</p>
-        </div>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "1.5rem" }}>
-          <div>
-            <label style={{ display: "block", fontSize: 13, fontWeight: 500, color: "#666", marginBottom: 6 }}>Name</label>
-            <input type="text" placeholder="Your name" style={{ width: "100%", padding: "8px 12px", border: "0.5px solid #ccc", borderRadius: 8, fontSize: 14, boxSizing: "border-box" }} />
-          </div>
-
-          <div>
-            <label style={{ display: "block", fontSize: 13, fontWeight: 500, color: "#666", marginBottom: 6 }}>Password</label>
-            <div style={{ position: "relative" }}>
-              <input
-                type={showPassword ? "text" : "password"}
-                placeholder="••••••••"
-                style={{ width: "100%", padding: "8px 36px 8px 12px", border: "0.5px solid #ccc", borderRadius: 8, fontSize: 14, boxSizing: "border-box" }}
-              />
-              <span onClick={() => setShowPassword(!showPassword)} style={{ position: "absolute", right: 10, top: "50%", transform: "translateY(-50%)", cursor: "pointer", fontSize: 16, color: "#aaa" }}>
-                {showPassword ? "🙈" : "👁"}
-              </span>
-            </div>
-            <div style={{ textAlign: "right", marginTop: 6 }}>
-              <a href="#" style={{ fontSize: 12, color: "#378add", textDecoration: "none" }}>Forgot password?</a>
-            </div>
-          </div>
-        </div>
-
-        <button style={{ width: "100%", padding: "10px", background: "#e6f1fb", border: "none", borderRadius: 8, color: "#185fa5", fontSize: 14, fontWeight: 500, cursor: "pointer" }}>
-          Sign in →
-        </button>
-
-        <p style={{ textAlign: "center", fontSize: 13, color: "#888", marginTop: "1.25rem" }}>
-          Don't have an account? <a href="#" style={{ color: "#378add", textDecoration: "none" }}>Sign up</a>
-        </p>
+      {/* LEFT IMAGE */}
+      <div className="relative hidden md:block flex-1">
+        <img
+          src="https://t3.ftcdn.net/jpg/02/76/26/88/360_F_276268861_Y4ZHLZuZoXVkrXsjaHkaJn7xbE57dz81.jpg"
+          alt="Job interview"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/20" />
       </div>
+
+      {/* RIGHT LOGIN FORM */}
+      <div className="flex-1 bg-[#f3f4f6] flex items-center justify-center p-8">
+        <div className="w-full max-w-[450px] py-8">
+
+          {/* Logo */}
+          <div className="flex items-center gap-2 mb-10">
+            <div className="w-10 h-10 bg-[#0f1f45] rounded-lg flex items-center justify-center text-white">
+              💼
+            </div>
+            <span className="font-medium text-gray-900 text-lg">
+              HireHub
+            </span>
+          </div>
+
+          <h1 className="text-3xl font-semibold text-gray-900 mb-2">
+            Welcome back
+          </h1>
+
+          <p className="text-gray-500 mb-8">
+            Sign in to continue to your account
+          </p>
+
+          {/* Email */}
+          <div className="mb-5">
+            <label className="block text-sm font-medium text-gray-600 mb-2">
+              Email address
+            </label>
+
+            <div className="relative">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                ✉
+              </span>
+
+              <input
+                type="email"
+                placeholder="you@example.com"
+                className="w-full bg-gray-50 border border-gray-200 rounded-lg pl-10 pr-4 py-3 text-sm outline-none focus:border-gray-400 focus:bg-white transition"
+              />
+            </div>
+          </div>
+
+          {/* Password */}
+          <div className="mb-5">
+            <div className="flex justify-between items-center mb-2">
+              <label className="text-sm font-medium text-gray-600">
+                Password
+              </label>
+
+              <a
+                href="#"
+                className="text-sm font-medium text-[#0f1f45] hover:underline"
+              >
+                Forgot password?
+              </a>
+            </div>
+
+            <div className="relative">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                🔒
+              </span>
+
+              <input
+                type={showPwd ? "text" : "password"}
+                placeholder="••••••••"
+                className="w-full bg-gray-50 border border-gray-200 rounded-lg pl-10 pr-10 py-3 text-sm outline-none focus:border-gray-400 focus:bg-white transition"
+              />
+
+              <button
+                type="button"
+                onClick={() => setShowPwd(!showPwd)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              >
+                {showPwd ? "🙈" : "👁"}
+              </button>
+            </div>
+          </div>
+
+          {/* Remember Me */}
+          <label className="flex items-center gap-2 cursor-pointer mb-6 text-sm text-gray-500">
+            <input type="checkbox" />
+            Remember me for 30 days
+          </label>
+
+          {/* Sign In */}
+          <button className="w-full bg-[#0f1f45] hover:bg-[#1a3060] text-white font-medium py-3 rounded-lg transition flex items-center justify-center gap-2 mb-6">
+            Sign in →
+          </button>
+
+          {/* Divider */}
+          <div className="flex items-center gap-3 mb-5">
+            <div className="flex-1 h-px bg-gray-200" />
+            <span className="text-sm text-gray-400">
+              or continue with
+            </span>
+            <div className="flex-1 h-px bg-gray-200" />
+          </div>
+
+          {/* Social Buttons */}
+          <div className="flex gap-3 mb-6">
+            {["Google", "LinkedIn"].map((provider) => (
+              <button
+                key={provider}
+                className="flex-1 py-3 rounded-lg border border-gray-200 text-sm text-gray-700 hover:bg-gray-50 transition"
+              >
+                {provider}
+              </button>
+            ))}
+          </div>
+
+          <p className="text-center text-sm text-gray-500">
+            Don't have an account?{" "}
+            <a
+              href="/signup"
+              className="text-[#0f1f45] font-medium hover:underline"
+            >
+              Create one free
+            </a>
+          </p>
+
+        </div>
+      </div>
+
     </div>
   );
 };
