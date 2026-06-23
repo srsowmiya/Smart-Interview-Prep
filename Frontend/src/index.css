@@ -1,53 +1,65 @@
 @import "tailwindcss";
 
-/* ─── Design Tokens ─── */
+/* ─────────────────────────────
+   DESIGN TOKENS
+───────────────────────────── */
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  /* Core palette — warm cream + coral */
-  --color-bg-primary: #FFFDF7;
-  --color-bg-secondary: #FFF2D0;
-  --color-bg-card: #FFFFFF;
-  --color-bg-hover: #FFF8E8;
-  --color-bg-muted: #FFF6DE;
-  --color-bg-input: #FFFBF2;
+  /* Backgrounds */
+  --color-bg-primary: #f5f5f5;
+  --color-bg-secondary: #111111;
+  --color-bg-card: #ffffff;
+  --color-bg-hover: #f3f4f6;
+  --color-bg-muted: #e5e7eb;
+  --color-bg-input: #fafafa;
 
-  --color-border-default: #FFE4B8;
-  --color-border-light: #FFEFD6;
-  --color-border-focus: #FFB2B2;
+  /* Borders */
+  --color-border-default: #d1d5db;
+  --color-border-light: #e5e7eb;
+  --color-border-focus: #111111;
 
-  --color-accent: #E36A6A;
-  --color-accent-light: #EB8585;
-  --color-accent-soft: #FFE8E8;
-  --color-accent-hover: #D15555;
+  /* Accent */
+  --color-accent: #111111;
+  --color-accent-light: #2c2c2c;
+  --color-accent-soft: #f3f4f6;
+  --color-accent-hover: #000000;
 
-  --color-secondary: #FFB2B2;
-  --color-secondary-dark: #F09090;
-  --color-secondary-light: #FFD4D4;
+  /* Secondary */
+  --color-secondary: #1f2937;
+  --color-secondary-dark: #111827;
+  --color-secondary-light: #374151;
 
-  --color-primary: #FFF2D0;
-  --color-primary-dark: #F5E0A0;
-  --color-primary-light: #FFF8E8;
+  /* Primary */
+  --color-primary: #ffffff;
+  --color-primary-dark: #e5e7eb;
+  --color-primary-light: #fafafa;
 
-  --color-text-heading: #2D1F10;
-  --color-text-primary: #3D2E1E;
-  --color-text-secondary: #6B5744;
-  --color-text-muted: #9A8A78;
-  --color-text-placeholder: #BBA992;
+  /* Text */
+  --color-text-heading: #111111;
+  --color-text-primary: #1f2937;
+  --color-text-secondary: #4b5563;
+  --color-text-muted: #9ca3af;
+  --color-text-placeholder: #d1d5db;
 
-  /* Semantic status */
-  --color-success: #5BAA6E;
-  --color-success-soft: #EDF7EF;
-  --color-warning: #D4960B;
-  --color-warning-soft: #FFF6E0;
-  --color-info: #6A9EBF;
-  --color-info-soft: #EAF3FA;
-  --color-danger: #E36A6A;
-  --color-danger-soft: #FFE8E8;
+  /* Status */
+  --color-success: #22c55e;
+  --color-success-soft: #dcfce7;
+
+  --color-warning: #f59e0b;
+  --color-warning-soft: #fef3c7;
+
+  --color-info: #3b82f6;
+  --color-info-soft: #dbeafe;
+
+  --color-danger: #ef4444;
+  --color-danger-soft: #fee2e2;
 }
 
-/* ─── Base Styles ─── */
+/* ─────────────────────────────
+   BASE STYLES
+───────────────────────────── */
 *,
 *::before,
 *::after {
@@ -67,43 +79,61 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ─── Scrollbar ─── */
+/* ─────────────────────────────
+   SCROLLBAR
+───────────────────────────── */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: var(--color-secondary);
+  background: #111111;
   border-radius: 999px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-secondary-dark);
+  background: #333333;
 }
 
-/* ─── Card Utility ─── */
+/* ─────────────────────────────
+   CARD UTILITIES
+───────────────────────────── */
 .card {
   background: var(--color-bg-card);
   border: 1px solid var(--color-border-light);
   border-radius: 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.05),
+    0 1px 2px rgba(0, 0, 0, 0.04);
+
   transition: all 0.25s ease;
 }
 
 .card-hover:hover {
   border-color: var(--color-border-focus);
-  box-shadow: 0 4px 16px rgba(255, 178, 178, 0.15), 0 1px 4px rgba(0, 0, 0, 0.03);
-  transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+
+  transform: translateY(-2px);
 }
 
-/* ─── Keyframes ─── */
+/* ─────────────────────────────
+   ANIMATIONS
+───────────────────────────── */
 @keyframes fade-in-up {
   0% {
     opacity: 0;
     transform: translateY(12px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -117,9 +147,11 @@ body {
 }
 
 @keyframes pulse-soft {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.6;
   }
@@ -137,15 +169,41 @@ body {
   animation: pulse-soft 2.5s ease-in-out infinite;
 }
 
-/* ─── Stagger Children Animation ─── */
+/* ─────────────────────────────
+   STAGGER ANIMATION
+───────────────────────────── */
 .stagger-children > * {
   animation: fade-in-up 0.45s ease-out both;
 }
-.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
-.stagger-children > *:nth-child(2) { animation-delay: 60ms; }
-.stagger-children > *:nth-child(3) { animation-delay: 120ms; }
-.stagger-children > *:nth-child(4) { animation-delay: 180ms; }
-.stagger-children > *:nth-child(5) { animation-delay: 240ms; }
-.stagger-children > *:nth-child(6) { animation-delay: 300ms; }
-.stagger-children > *:nth-child(7) { animation-delay: 360ms; }
-.stagger-children > *:nth-child(8) { animation-delay: 420ms; }
+
+.stagger-children > *:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.stagger-children > *:nth-child(2) {
+  animation-delay: 60ms;
+}
+
+.stagger-children > *:nth-child(3) {
+  animation-delay: 120ms;
+}
+
+.stagger-children > *:nth-child(4) {
+  animation-delay: 180ms;
+}
+
+.stagger-children > *:nth-child(5) {
+  animation-delay: 240ms;
+}
+
+.stagger-children > *:nth-child(6) {
+  animation-delay: 300ms;
+}
+
+.stagger-children > *:nth-child(7) {
+  animation-delay: 360ms;
+}
+
+.stagger-children > *:nth-child(8) {
+  animation-delay: 420ms;
+}
