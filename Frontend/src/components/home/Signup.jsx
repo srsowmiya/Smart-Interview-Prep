@@ -5,95 +5,217 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
 
-  const score = [password.length >= 8, /[A-Z]/.test(password), /[0-9]/.test(password), /[^A-Za-z0-9]/.test(password)].filter(Boolean).length;
-  const strColors = ["bg-red-400", "bg-amber-400", "bg-blue-400", "bg-teal-400"];
-  const strLabels = ["Weak", "Fair", "Good", "Strong"];
-  const strTextColors = ["text-red-300", "text-amber-300", "text-blue-300", "text-teal-300"];
+  const score = [
+    password.length >= 8,
+    /[A-Z]/.test(password),
+    /[0-9]/.test(password),
+    /[^A-Za-z0-9]/.test(password),
+  ].filter(Boolean).length;
+
+  const strengthColors = [
+    "bg-red-400",
+    "bg-amber-400",
+    "bg-blue-400",
+    "bg-teal-400",
+  ];
+
+  const strengthLabels = [
+    "Weak",
+    "Fair",
+    "Good",
+    "Strong",
+  ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-400 p-6">
-      <div className="relative overflow-hidden w-full max-w-sm rounded-2xl bg-white/9 backdrop-blur-xl border border-white/20 p-8 text-white">
+    <div className="flex h-screen w-full">
+      {/* LEFT IMAGE */}
+      <div className="relative hidden md:block flex-1">
+        <img
+          src="https://t4.ftcdn.net/jpg/02/76/83/17/360_F_276831797_pt3LSNMifFHn6cOnsAc60IQPd0IkKW4z.jpg"
+          alt="Signup"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/20"></div>
+      </div>
 
-        <div className="absolute -top-8 -right-8 w-32 h-32 rounded-full bg-white/5 pointer-events-none" />
-        <div className="absolute -bottom-4 -left-4 w-20 h-20 rounded-full bg-white/4 pointer-events-none" />
-
-        <div className="relative z-10">
-          <span className="inline-block text-xs font-medium bg-white/12 px-3 py-1 rounded-full mb-4">Create account</span>
-
-          <div className="mb-6">
-            <div className="w-10 h-10 rounded-full bg-white/12 border border-white/20 flex items-center justify-center mb-3">
-              <span className="text-lg">✨</span>
+      {/* RIGHT SIDE */}
+      <div className="flex-1 bg-[#f3f4f6] flex items-center justify-center p-8">
+        <div className="w-full max-w-[500px] bg-white rounded-2xl shadow-lg p-8">
+          {/* Logo */}
+          <div className="flex items-center gap-2 mb-8">
+            <div className="w-10 h-10 bg-[#0f1f45] rounded-lg flex items-center justify-center text-white">
+              💼
             </div>
-            <h1 className="text-xl font-medium mb-1">Get started</h1>
-            <p className="text-white/55 text-sm">Create your free account</p>
+
+            <span className="text-lg font-medium text-gray-900">
+              HireHub
+            </span>
           </div>
 
-          <div className="space-y-4">
-            <div className="flex gap-2">
-              {[["First name", "Jane"], ["Last name", "Doe"]].map(([lbl, ph]) => (
-                <div key={lbl} className="flex-1">
-                  <label className="block text-white/65 text-xs font-medium mb-1.5">{lbl}</label>
-                  <input type="text" placeholder={ph}
-                    className="w-full bg-white/10 border border-white/22 rounded-xl px-3 py-2.5 text-white placeholder-white/40 text-sm outline-none focus:border-white/55 transition" />
-                </div>
-              ))}
+          {/* Heading */}
+          <h1 className="text-3xl font-semibold text-gray-900 mb-2">
+            Create Account
+          </h1>
+
+          <p className="text-gray-500 mb-8">
+            Join HireHub and start your career journey
+          </p>
+
+          <div className="space-y-5">
+            {/* Name */}
+            <div className="flex gap-3">
+              <div className="flex-1">
+                <label className="block text-sm font-medium text-gray-600 mb-2">
+                  First Name
+                </label>
+
+                <input
+                  type="text"
+                  placeholder="Jane"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-400"
+                />
+              </div>
+
+              <div className="flex-1">
+                <label className="block text-sm font-medium text-gray-600 mb-2">
+                  Last Name
+                </label>
+
+                <input
+                  type="text"
+                  placeholder="Doe"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-400"
+                />
+              </div>
             </div>
 
+            {/* Email */}
             <div>
-              <label className="block text-white/65 text-xs font-medium mb-1.5">Email</label>
-              <input type="email" placeholder="you@example.com"
-                className="w-full bg-white/10 border border-white/22 rounded-xl px-4 py-2.5 text-white placeholder-white/40 text-sm outline-none focus:border-white/55 transition" />
+              <label className="block text-sm font-medium text-gray-600 mb-2">
+                Email Address
+              </label>
+
+              <input
+                type="email"
+                placeholder="you@example.com"
+                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-400"
+              />
             </div>
 
+            {/* Password */}
             <div>
-              <label className="block text-white/65 text-xs font-medium mb-1.5">Password</label>
+              <label className="block text-sm font-medium text-gray-600 mb-2">
+                Password
+              </label>
+
               <div className="relative">
-                <input type={showPwd ? "text" : "password"} placeholder="Min. 8 chars"
-                  value={password} onChange={(e) => setPassword(e.target.value)}
-                  className="w-full bg-white/10 border border-white/22 rounded-xl px-4 py-2.5 pr-10 text-white placeholder-white/40 text-sm outline-none focus:border-white/55 transition" />
-                <button onClick={() => setShowPwd(!showPwd)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-white/45 hover:text-white/75 transition text-sm">
+                <input
+                  type={showPwd ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Minimum 8 characters"
+                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 pr-12 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-400"
+                />
+
+                <button
+                  type="button"
+                  onClick={() => setShowPwd(!showPwd)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
+                >
                   {showPwd ? "🙈" : "👁"}
                 </button>
               </div>
-              {password && (
+
+              {password.length > 0 && (
                 <>
                   <div className="flex gap-1 mt-2">
-                    {[1,2,3,4].map((i) => (
-                      <div key={i} className={`h-0.5 flex-1 rounded-full transition-all ${i <= score ? strColors[score-1] : "bg-white/18"}`} />
+                    {[1, 2, 3, 4].map((i) => (
+                      <div
+                        key={i}
+                        className={
+                          "h-1 flex-1 rounded-full " +
+                          (i <= score
+                            ? strengthColors[Math.max(score - 1, 0)]
+                            : "bg-gray-200")
+                        }
+                      />
                     ))}
                   </div>
-                  <p className={`text-xs mt-1 ${strTextColors[score-1]}`}>{strLabels[score-1]}</p>
+
+                  <p className="text-xs mt-1 text-gray-500">
+                    {strengthLabels[Math.max(score - 1, 0)]}
+                  </p>
                 </>
               )}
             </div>
 
+            {/* Confirm Password */}
             <div>
-              <label className="block text-white/65 text-xs font-medium mb-1.5">Confirm password</label>
-              <input type="password" placeholder="Repeat password"
-                value={confirm} onChange={(e) => setConfirm(e.target.value)}
-                className="w-full bg-white/10 border border-white/22 rounded-xl px-4 py-2.5 text-white placeholder-white/40 text-sm outline-none focus:border-white/55 transition" />
-              {confirm && (
-                <p className={`text-xs mt-1 ${confirm === password ? "text-teal-300" : "text-red-300"}`}>
-                  {confirm === password ? "✓ Passwords match" : "✗ Does not match"}
+              <label className="block text-sm font-medium text-gray-600 mb-2">
+                Confirm Password
+              </label>
+
+              <input
+                type="password"
+                value={confirm}
+                onChange={(e) => setConfirm(e.target.value)}
+                placeholder="Repeat password"
+                className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-400"
+              />
+
+              {confirm.length > 0 && (
+                <p
+                  className={
+                    "text-xs mt-1 " +
+                    (confirm === password
+                      ? "text-green-600"
+                      : "text-red-500")
+                  }
+                >
+                  {confirm === password
+                    ? "✓ Passwords match"
+                    : "✗ Passwords do not match"}
                 </p>
               )}
             </div>
 
-            <label className="flex items-start gap-2 cursor-pointer">
-              <input type="checkbox" className="mt-0.5 accent-white" />
-              <span className="text-white/60 text-xs leading-relaxed">
-                I agree to the <a href="#" className="text-white font-medium">Terms</a> &amp; <a href="#" className="text-white font-medium">Privacy Policy</a>
+            {/* Terms */}
+            <label className="flex items-start gap-2">
+              <input type="checkbox" className="mt-1" />
+
+              <span className="text-sm text-gray-500">
+                I agree to the{" "}
+                <a
+                  href="#"
+                  className="text-[#0f1f45] font-medium hover:underline"
+                >
+                  Terms
+                </a>{" "}
+                &{" "}
+                <a
+                  href="#"
+                  className="text-[#0f1f45] font-medium hover:underline"
+                >
+                  Privacy Policy
+                </a>
               </span>
             </label>
 
-            <button className="w-full bg-white/88 text-teal-700 font-medium py-2.5 rounded-xl text-sm hover:bg-white transition flex items-center justify-center gap-2">
-              Create account →
+            {/* Submit */}
+            <button className="w-full bg-[#0f1f45] hover:bg-[#1a3060] text-white py-3 rounded-xl font-medium transition">
+              Create Account →
             </button>
           </div>
 
-          <p className="text-center text-white/45 text-xs mt-5">
-            Have an account? <a href="#" className="text-white font-medium">Sign in</a>
+          {/* Footer */}
+          <p className="text-center text-sm text-gray-500 mt-6">
+            Already have an account?{" "}
+            <a
+              href="/login"
+              className="text-[#0f1f45] font-medium hover:underline"
+            >
+              Sign In
+            </a>
           </p>
         </div>
       </div>
