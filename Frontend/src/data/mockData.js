@@ -184,7 +184,7 @@ export const sidebarNav = [
   {
     label: "Mock Interviews",
     icon: "Video",
-    path: "/mock-interviews",
+    path: "/mock-interview",
   },
   {
     label: "Resume Analyzer",
