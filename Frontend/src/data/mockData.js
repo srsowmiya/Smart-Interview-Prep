@@ -171,14 +171,46 @@ export const dailyChallenges = [
 ];
 
 export const sidebarNav = [
-  { label: "Dashboard", icon: "LayoutDashboard", active: true },
-  { label: "DSA Tracker", icon: "Code2" },
-  { label: "Mock Interviews", icon: "Video" },
-  { label: "Resume Analyzer", icon: "FileText" },
-  { label: "Aptitude Practice", icon: "Brain" },
-  { label: "AI Mentor", icon: "Sparkles" },
-  { label: "Progress Analytics", icon: "BarChart3" },
-  { label: "Study Planner", icon: "CalendarDays" },
+  {
+    label: "Dashboard",
+    icon: "LayoutDashboard",
+    path: "/",
+  },
+  {
+    label: "DSA Tracker",
+    icon: "Code2",
+    path: "/dsa-tracker",
+  },
+  {
+    label: "Mock Interviews",
+    icon: "Video",
+    path: "/mock-interviews",
+  },
+  {
+    label: "Resume Analyzer",
+    icon: "FileText",
+    path: "/resumeanalyzer",
+  },
+  {
+    label: "Aptitude Practice",
+    icon: "Brain",
+    path: "/aptitude-practice",
+  },
+  {
+    label: "AI Mentor",
+    icon: "Sparkles",
+    path: "/ai-mentor",
+  },
+  {
+    label: "Progress Analytics",
+    icon: "BarChart3",
+    path: "/progress-analytics",
+  },
+  {
+    label: "Study Planner",
+    icon: "CalendarDays",
+    path: "/study-planner",
+  },
 ];
 
 export const interviewPrepItems = [

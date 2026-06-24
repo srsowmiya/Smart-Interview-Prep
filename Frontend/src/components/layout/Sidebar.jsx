@@ -21,6 +21,8 @@ import {
   interviewPrepItems,
 } from "../../data/mockData";
 
+import { NavLink } from "react-router-dom";
+
 const iconMap = {
   LayoutDashboard,
   Code2,
@@ -40,7 +42,7 @@ const iconMap = {
 export default function Sidebar() {
   return (
     <aside className="fixed left-4 top-[95px] bottom-4 w-[280px] bg-[#111111] rounded-3xl shadow-2xl flex flex-col overflow-hidden">
-
+      
       {/* Pro Card */}
       <div className="p-5">
         <div className="bg-white rounded-2xl p-4 flex items-center gap-3">
@@ -62,7 +64,7 @@ export default function Sidebar() {
 
       {/* Navigation */}
       <nav className="flex-1 px-4 overflow-y-auto">
-
+        
         {/* Main Menu */}
         <div className="mb-8">
           <p className="px-3 mb-3 text-xs uppercase tracking-widest text-gray-500">
@@ -74,27 +76,32 @@ export default function Sidebar() {
               const Icon = iconMap[item.icon];
 
               return (
-                <button
+                <NavLink
                   key={item.label}
-                  className={
-                    item.active
-                      ? "w-full flex items-center gap-3 bg-white text-black px-4 py-3 rounded-2xl font-medium transition"
-                      : "w-full flex items-center gap-3 text-white/80 hover:bg-[#1f1f1f] hover:text-white px-4 py-3 rounded-2xl transition"
+                  to={item.path}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "w-full flex items-center gap-3 bg-white text-black px-4 py-3 rounded-2xl font-medium transition-all duration-200"
+                      : "w-full flex items-center gap-3 text-white/80 hover:bg-[#1f1f1f] hover:text-white px-4 py-3 rounded-2xl transition-all duration-200"
                   }
                 >
-                  {Icon && (
-                    <Icon
-                      size={18}
-                      className={
-                        item.active
-                          ? "text-black"
-                          : "text-gray-400"
-                      }
-                    />
-                  )}
+                  {({ isActive }) => (
+                    <>
+                      {Icon && (
+                        <Icon
+                          size={18}
+                          className={
+                            isActive
+                              ? "text-black"
+                              : "text-gray-400"
+                          }
+                        />
+                      )}
 
-                  <span>{item.label}</span>
-                </button>
+                      <span>{item.label}</span>
+                    </>
+                  )}
+                </NavLink>
               );
             })}
           </div>
@@ -111,19 +118,32 @@ export default function Sidebar() {
               const Icon = iconMap[item.icon];
 
               return (
-                <button
+                <NavLink
                   key={item.label}
-                  className="w-full flex items-center gap-3 text-white/80 hover:bg-[#1f1f1f] hover:text-white px-4 py-3 rounded-2xl transition"
+                  to={item.path}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "w-full flex items-center gap-3 bg-white text-black px-4 py-3 rounded-2xl font-medium transition-all duration-200"
+                      : "w-full flex items-center gap-3 text-white/80 hover:bg-[#1f1f1f] hover:text-white px-4 py-3 rounded-2xl transition-all duration-200"
+                  }
                 >
-                  {Icon && (
-                    <Icon
-                      size={18}
-                      className="text-gray-400"
-                    />
-                  )}
+                  {({ isActive }) => (
+                    <>
+                      {Icon && (
+                        <Icon
+                          size={18}
+                          className={
+                            isActive
+                              ? "text-black"
+                              : "text-gray-400"
+                          }
+                        />
+                      )}
 
-                  <span>{item.label}</span>
-                </button>
+                      <span>{item.label}</span>
+                    </>
+                  )}
+                </NavLink>
               );
             })}
           </div>
@@ -135,11 +155,12 @@ export default function Sidebar() {
             Account
           </p>
 
-          <button className="w-full flex items-center gap-3 text-white/80 hover:bg-[#1f1f1f] hover:text-white px-4 py-3 rounded-2xl transition">
+          <button className="w-full flex items-center gap-3 text-white/80 hover:bg-[#1f1f1f] hover:text-white px-4 py-3 rounded-2xl transition-all duration-200">
             <Settings
               size={18}
               className="text-gray-400"
             />
+
             <span>Settings</span>
           </button>
         </div>
@@ -147,8 +168,9 @@ export default function Sidebar() {
 
       {/* Logout */}
       <div className="p-4 border-t border-white/10">
-        <button className="w-full flex items-center gap-3 text-red-400 hover:bg-red-500/10 px-4 py-3 rounded-2xl transition">
+        <button className="w-full flex items-center gap-3 text-red-400 hover:bg-red-500/10 px-4 py-3 rounded-2xl transition-all duration-200">
           <LogOut size={18} />
+
           <span>Log Out</span>
         </button>
       </div>
