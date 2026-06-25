@@ -35,8 +35,8 @@ export default function InterviewRoom() {
     try {
       const stream =
         await navigator.mediaDevices.getUserMedia({
-          video: true,
-          audio: true,
+          video: false,
+          audio: false,
         });
 
       if (videoRef.current) {
@@ -213,8 +213,8 @@ export default function InterviewRoom() {
     questions[currentQuestion];
 
   return (
-    <div className="min-h-screen bg-[#f5f5f5] p-6">
-      <div className="grid grid-cols-2 gap-6 h-full">
+   <div className="min-h-screen bg-[#f5f5f5] p-6 flex justify-center">
+      <div className="h-full">
 
         {/* Question Panel */}
 
@@ -242,7 +242,7 @@ export default function InterviewRoom() {
 
           <div className="mt-6">
             <label className="font-medium block mb-2">
-              Spoken Answer
+              Type your Answer
             </label>
 
             <textarea
