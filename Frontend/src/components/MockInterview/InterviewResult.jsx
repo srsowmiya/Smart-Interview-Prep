@@ -5,6 +5,7 @@ export default function InterviewResult() {
   const location = useLocation();
 
   const result = location.state;
+  console.log(result);
 
   if (!result) {
     return (
