@@ -163,6 +163,29 @@ export default function AptitudePractice() {
       }
     };
 
+    const skipQuestion = async () => {
+  try {
+    setLoading(true);
+
+    const data = await generateQuestion(
+      topic,
+      difficulty
+    );
+
+    setQuestion(data);
+
+    setAnswer("");
+    setFeedback("");
+    setHint("");
+    setExplanation("");
+    setCorrect(false);
+  } catch (err) {
+    console.error(err);
+  } finally {
+    setLoading(false);
+  }
+};
+
       if (!started) {
     return (
       <div className="min-h-screen bg-[#f5f5f5] p-10">
@@ -309,6 +332,13 @@ export default function AptitudePractice() {
               ? "Checking..."
               : "Submit"}
           </button>
+           <button
+    onClick={skipQuestion}
+    className="border px-8 py-3 rounded-xl hover:bg-gray-100"
+  >
+    Skip
+  </button>
+
 
         </div>
 
