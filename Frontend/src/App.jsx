@@ -6,6 +6,7 @@ import InterviewRoom from "./components/MockInterview/InterviewRoom";
 import InterviewResult from "./components/MockInterview/InterviewResult"; 
 import Analayser from "./components/ResumAnalyser/Analayser";
 import DSATracker from "./components/DsaTracker/DSATracker";
+import AptitudePractice from "./components/aptituePractice/AptitudePractice";
 
 function App() {
   return (
@@ -35,6 +36,13 @@ function App() {
 <Route
   path="/dsa-tracker"
   element={<DSATracker />}
+/>
+
+// App.jsx
+
+<Route
+  path="/aptitude-practice"
+  element={<AptitudePractice />}
 />
     </Routes>
   );
