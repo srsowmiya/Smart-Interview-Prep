@@ -197,11 +197,6 @@ export const sidebarNav = [
     path: "/aptitude-practice",
   },
   {
-    label: "AI Mentor",
-    icon: "Sparkles",
-    path: "/ai-mentor",
-  },
-  {
     label: "Progress Analytics",
     icon: "BarChart3",
     path: "/progress-analytics",
@@ -216,8 +211,8 @@ export const sidebarNav = [
 export const interviewPrepItems = [
   { label: "Company-wise Prep", icon: "Building2" },
   { label: "Role-wise Prep", icon: "Briefcase" },
-  { label: "Custom Roadmaps", icon: "Map" },
-  { label: "Rounds Tracker", icon: "ListChecks" },
+  // { label: "Custom Roadmaps", icon: "Map" },
+  // { label: "Rounds Tracker", icon: "ListChecks" },
 ];
 
 export const achievements = [
