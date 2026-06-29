@@ -1,4 +1,5 @@
 import { Bell } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -17,40 +18,40 @@ export default function Navbar() {
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center gap-10">
-            <a
-              href="#"
+            <Link
+              to="/"
               className="text-white/90 hover:text-white transition font-medium"
             >
               Dashboard
-            </a>
+            </Link>
 
-            <a
-              href="#"
+            <Link
+              to="/dsa-tracker"
               className="text-white/90 hover:text-white transition font-medium"
             >
               DSA
-            </a>
+            </Link>
 
-            <a
-              href="#"
+            <Link
+              to="/mock-interview"
               className="text-white/90 hover:text-white transition font-medium"
             >
               Mock Interview
-            </a>
+            </Link>
 
-            <a
-              href="#"
+            <Link
+              to="/resumeanalyzer"
               className="text-white/90 hover:text-white transition font-medium"
             >
               Resume
-            </a>
+            </Link>
 
-            <a
-              href="#"
+            <Link
+              to=""
               className="text-white/90 hover:text-white transition font-medium"
             >
               Analytics
-            </a>
+            </Link>
           </div>
         </div>
 
