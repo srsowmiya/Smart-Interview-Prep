@@ -7,6 +7,7 @@ import InterviewResult from "./components/MockInterview/InterviewResult";
 import Analayser from "./components/ResumAnalyser/Analayser";
 import DSATracker from "./components/DsaTracker/DSATracker";
 import AptitudePractice from "./components/aptituePractice/AptitudePractice";
+import  StudyPlanner from "./components/studyPlanner/StudyPlanner"
 
 function App() {
   return (
@@ -44,6 +45,8 @@ function App() {
   path="/aptitude-practice"
   element={<AptitudePractice />}
 />
+
+<Route path="/study-planner" element={<StudyPlanner/>}/>
     </Routes>
   );
 }

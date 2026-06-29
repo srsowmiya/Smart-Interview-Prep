@@ -5,6 +5,8 @@ import dotenv from "dotenv";
 import interviewRoutes from "./routes/interview.js";
 import dsaTrackerRoutes from "./routes/dsatracker.js";
 import aptitudeRoutes from './routes/aptitude.js'
+import resumeRoutes from "./routes/resume.js";
+import studyPlannerRoutes from "./routes/studyPlanner.js";
 
 dotenv.config();
 
@@ -19,6 +21,8 @@ app.use(
   interviewRoutes
 );
 
+
+
 app.use(
   "/api/dsa",
   dsaTrackerRoutes
@@ -27,6 +31,16 @@ app.use(
 app.use(
   "/api/aptitude",
   aptitudeRoutes
+);
+
+app.use(
+  "/api/resume",
+  resumeRoutes
+);
+
+app.use(
+  "/api/studyplanner",
+  studyPlannerRoutes
 );
 
 app.listen(5000, () => {
