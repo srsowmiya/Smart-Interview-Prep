@@ -5,7 +5,6 @@ import Sidebar from "./components/layout/Sidebar";
 
 import HeroSection from "./components/dashboard/HeroSection";
 import StatsCards from "./components/dashboard/StatsCards";
-import AIRecommendations from "./components/dashboard/AIRecommendations";
 import DSAProgress from "./components/dashboard/DSAProgress";
 import MockInterview from "./components/dashboard/MockInterview";
 import ResumeAnalyzer from "./components/dashboard/ResumeAnalyzer";
@@ -30,7 +29,7 @@ function Home() {
             <MockInterview />
           </section>
 
-          <AIRecommendations />
+         
 
           <ResumeAnalyzer />
 

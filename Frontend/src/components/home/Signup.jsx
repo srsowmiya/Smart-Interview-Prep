@@ -4,6 +4,23 @@ const Signup = () => {
   const [showPwd, setShowPwd] = useState(false);
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
+  const [email,setEmail]=useState("")
+
+  async function handleClick(){
+    const data={email,password}
+    const response=await fetch("http://localhost:5000/signup",{
+      method:"POST",
+      headers:{
+        "Content-type":"application/json"
+      },
+      body:JSON.stringify(data)
+    })
+
+    if(response.ok)
+        console.log("signup success")
+    else
+        console.log("signup failed")
+  }
 
   const score = [
     password.length >= 8,
@@ -97,6 +114,8 @@ const Signup = () => {
 
               <input
                 type="email"
+                value={email}
+                onChange={(e)=>{setEmail(e.target.value)}}
                 placeholder="you@example.com"
                 className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-400"
               />
@@ -202,7 +221,7 @@ const Signup = () => {
             </label>
 
             {/* Submit */}
-            <button className="w-full bg-[#0f1f45] hover:bg-[#1a3060] text-white py-3 rounded-xl font-medium transition">
+            <button onClick={handleClick} className="w-full bg-[#0f1f45] hover:bg-[#1a3060] text-white py-3 rounded-xl font-medium transition">
               Create Account →
             </button>
           </div>

@@ -2,7 +2,22 @@ import { useState } from "react";
 
 const Login = () => {
   const [showPwd, setShowPwd] = useState(false);
-
+  const [email,setEmail]=useState("")
+  const [password,setPassword]=useState("")
+  async function  handleClick(){
+    const data={email,password}
+    const response =await fetch("http://localhost:5000/login",{
+      method:"POST",
+      headers:{
+        "Content-type":"application/json"
+      },
+      body:JSON.stringify(data)
+    })
+    if(response.ok)
+        console.log("login success")
+    else
+      console.log("login failed")
+  }
   return (
     <div className="flex h-screen w-full">
 
@@ -50,6 +65,8 @@ const Login = () => {
               </span>
 
               <input
+               value={email}
+  onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 placeholder="you@example.com"
                 className="w-full bg-gray-50 border border-gray-200 rounded-lg pl-10 pr-4 py-3 text-sm outline-none focus:border-gray-400 focus:bg-white transition"
@@ -79,6 +96,8 @@ const Login = () => {
 
               <input
                 type={showPwd ? "text" : "password"}
+                value={password}
+                onChange={(e)=>{setPassword(e.target.value)}}
                 placeholder="••••••••"
                 className="w-full bg-gray-50 border border-gray-200 rounded-lg pl-10 pr-10 py-3 text-sm outline-none focus:border-gray-400 focus:bg-white transition"
               />
@@ -100,7 +119,7 @@ const Login = () => {
           </label>
 
           {/* Sign In */}
-          <button className="w-full bg-[#0f1f45] hover:bg-[#1a3060] text-white font-medium py-3 rounded-lg transition flex items-center justify-center gap-2 mb-6">
+          <button onClick={handleClick} className="w-full bg-[#0f1f45] hover:bg-[#1a3060] text-white font-medium py-3 rounded-lg transition flex items-center justify-center gap-2 mb-6">
             Sign in →
           </button>
 
