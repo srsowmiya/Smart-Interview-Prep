@@ -7,6 +7,8 @@ import dsaTrackerRoutes from "./routes/dsatracker.js";
 import aptitudeRoutes from './routes/aptitude.js'
 import resumeRoutes from "./routes/resume.js";
 import studyPlannerRoutes from "./routes/studyPlanner.js";
+import login from "./routes/login.js"
+import signup from "./routes/signup.js"
 
 dotenv.config();
 
@@ -41,6 +43,10 @@ app.use(
   "/api/studyplanner",
   studyPlannerRoutes
 );
+
+app.use("/api/login",login)
+
+app.use("/api/signup",signup)
 
 app.listen(5000, () => {
   console.log(

@@ -11,7 +11,7 @@ import Signup from './components/home/Signup'
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Signup />
+      <Login />
     </BrowserRouter>
   </React.StrictMode>
 );

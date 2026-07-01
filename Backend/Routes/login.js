@@ -1,11 +1,11 @@
 import express from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import db from "../config/db.js";
+import db from "../config/db.js"
 
 const router = express.Router();
 
-router.post("/login", async (req, res) => {
+router.post("/", async (req, res) => {
     try {
         const { email, password } = req.body;
 

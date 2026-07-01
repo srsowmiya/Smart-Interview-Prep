@@ -5,10 +5,11 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
   const [email,setEmail]=useState("")
+  const [name,setName]=useState("")
 
   async function handleClick(){
-    const data={email,password}
-    const response=await fetch("http://localhost:5000/signup",{
+    const data={name,email,password}
+    const response=await fetch("http://localhost:5000/api/signup",{
       method:"POST",
       headers:{
         "Content-type":"application/json"
@@ -17,7 +18,10 @@ const Signup = () => {
     })
 
     if(response.ok)
+    {
         console.log("signup success")
+      alert("signup success")
+    }
     else
         console.log("signup failed")
   }
@@ -87,6 +91,10 @@ const Signup = () => {
                 </label>
 
                 <input
+                  value={name}
+                  onChange={(e)=>{
+                    setName(e.target.value)
+                  }}
                   type="text"
                   placeholder="Jane"
                   className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-400"
