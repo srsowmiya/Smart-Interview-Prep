@@ -167,15 +167,28 @@ const Login = () => {
             ))}
           </div>
 
-          <p className="text-center text-sm text-gray-500">
-            Don't have an account?{" "}
-            <a
-              href="/signup"
-              className="text-[#0f1f45] font-medium hover:underline"
-            >
-              Create one free
-            </a>
-          </p>
+         <div className="mt-6">
+
+  <button
+    onClick={() => navigate("/signup")}
+    className="w-full border border-[#0f1f45] text-[#0f1f45] hover:bg-[#0f1f45] hover:text-white font-medium py-3 rounded-lg transition"
+  >
+    Create New Account
+  </button>
+
+</div>
+
+<p className="text-center text-sm text-gray-500 mt-5">
+  Don't have an account?{" "}
+
+  <button
+    onClick={() => navigate("/signup")}
+    className="text-[#0f1f45] font-medium hover:underline"
+  >
+    Sign Up
+  </button>
+
+</p>
 
         </div>
       </div>
