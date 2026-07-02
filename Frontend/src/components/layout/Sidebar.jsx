@@ -21,7 +21,7 @@ import {
   interviewPrepItems,
 } from "../../data/mockData";
 
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const iconMap = {
   LayoutDashboard,
@@ -168,11 +168,13 @@ export default function Sidebar() {
 
       {/* Logout */}
       <div className="p-4 border-t border-white/10">
+      <Link to="/login">
         <button className="w-full flex items-center gap-3 text-red-400 hover:bg-red-500/10 px-4 py-3 rounded-2xl transition-all duration-200">
           <LogOut size={18} />
 
           <span>Log Out</span>
         </button>
+        </Link>
       </div>
     </aside>
   );

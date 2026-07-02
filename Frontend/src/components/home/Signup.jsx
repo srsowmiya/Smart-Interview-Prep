@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {useNavigate} from "react-router-dom"
 
 const Signup = () => {
   const [showPwd, setShowPwd] = useState(false);
@@ -6,6 +7,7 @@ const Signup = () => {
   const [confirm, setConfirm] = useState("");
   const [email,setEmail]=useState("")
   const [name,setName]=useState("")
+  const navigate=useNavigate()
 
   async function handleClick(){
     const data={name,email,password}
@@ -20,7 +22,7 @@ const Signup = () => {
     if(response.ok)
     {
         console.log("signup success")
-      alert("signup success")
+        navigate("/")
     }
     else
         console.log("signup failed")

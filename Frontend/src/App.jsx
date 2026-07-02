@@ -8,11 +8,17 @@ import Analayser from "./components/ResumAnalyser/Analayser";
 import DSATracker from "./components/DsaTracker/DSATracker";
 import AptitudePractice from "./components/aptituePractice/AptitudePractice";
 import  StudyPlanner from "./components/studyPlanner/StudyPlanner"
+import Login from "./components/home/Login";
+import Signup from "./components/home/Signup"
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+
+      <Route path="/login" element={<Login/>}/>
+
+      <Route path="/signup" element={<Signup/>}/>
 
       <Route
         path="/resumeanalyzer"

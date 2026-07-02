@@ -1,23 +1,46 @@
 import { useState } from "react";
+import {useNavigate} from "react-router-dom"
 
 const Login = () => {
   const [showPwd, setShowPwd] = useState(false);
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
-  async function  handleClick(){
-    const data={email,password}
-    const response =await fetch("http://localhost:5000/api/login",{
-      method:"POST",
-      headers:{
-        "Content-type":"application/json"
-      },
-      body:JSON.stringify(data)
-    })
-    if(response.ok)
-        console.log("login success")
-    else
-      console.log("login failed")
+  const navigate = useNavigate();
+  async function handleClick() {
+  try {
+    const data = { email, password };
+
+    const response = await fetch(
+      "http://localhost:5000/api/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
+
+    const result = await response.json();
+
+    console.log(result);
+
+    if (response.ok) {
+      console.log("Login Success");
+
+      // Save JWT
+      localStorage.setItem("token", result.token);
+      navigate("/")
+
+    } else {
+      console.log("Login Failed");
+      console.log(result);
+    }
+
+  } catch (err) {
+    console.error(err);
   }
+}
   return (
     <div className="flex h-screen w-full">
 

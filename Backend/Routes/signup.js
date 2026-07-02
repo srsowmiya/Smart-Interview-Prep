@@ -9,6 +9,7 @@ const router = express.Router();
 router.post("/", async (req, res) => {
     try {
         const { name, email, password } = req.body;
+        console.log(name)
 
         // Check if user already exists
         const [rows] = await db.query(
